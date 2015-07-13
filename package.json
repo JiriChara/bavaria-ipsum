@@ -1,0 +1,14 @@
+{
+  "name": "bavaria-ipsum",
+  "version": "1.0.0",
+  "description": "Bavarian lorem ipsum like generator",
+  "main": "src/bavaria-ipsum.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jiri Chara <me@jirichara.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "browserify": "^10.2.6"
+  }
+}
