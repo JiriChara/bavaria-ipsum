@@ -17,7 +17,7 @@ Bower:
 
 
 ```shell
-bower install bavariaboweripsum
+bower install bavaria-ipsum
 ```
 
 Or get it from GitHub:
