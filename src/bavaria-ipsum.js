@@ -39,7 +39,7 @@ var BavariaIpsum = function (opts) {
     /**
      * Max limit of sentences in the paragraph.
      */
-    this.maxParagraphSentences = opts.maxParagraphSentences || 2;
+    this.maxParagraphSentences = opts.maxParagraphSentences || 20;
 };
 
 BavariaIpsum.prototype = {

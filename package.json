@@ -4,11 +4,25 @@
   "description": "Bavarian lorem ipsum like generator",
   "main": "src/bavaria-ipsum.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+      "test": "grunt"
   },
   "author": "Jiri Chara <me@jirichara.com>",
   "license": "MIT",
   "devDependencies": {
-    "browserify": "^10.2.6"
+    "browserify": "^10.2.6",
+    "grunt": "^0.4.5",
+    "grunt-browserify": "^3.8.0",
+    "grunt-contrib-jshint": "^0.11.2",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-karma": "^0.11.2",
+    "jasmine-core": "^2.3.4",
+    "jasmine-expect": "^2.0.0-beta1",
+    "jshint": "^2.8.0",
+    "karma": "^0.12.37",
+    "karma-bro": "^0.11.1",
+    "karma-jasmine": "^0.3.6",
+    "karma-jasmine-matchers": "^2.0.0-beta1",
+    "karma-phantomjs-launcher": "^0.2.0",
+    "phantomjs": "^1.9.17"
   }
 }
