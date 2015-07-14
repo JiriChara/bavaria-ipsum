@@ -1,8 +1,12 @@
-(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.bavariaIpsum = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.BavariaIpsum = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+'use strict';
+
 /**
  * The definition of BavariaIpsum class.
  */
-var BavariaIpsum = function () {
+var BavariaIpsum = function (opts) {
+    opts = opts || {};
+
     /**
      * Array of "all" available bavarian words.
      */
@@ -11,42 +15,35 @@ var BavariaIpsum = function () {
     /**
      * The default starting sentence.
      */
-    this.START_SENTENCE = 'Bavaria ipsum dolor sit amet';
+    this.startSentence = opts.startSentence || 'Bavaria ipsum dolor sit amet';
 
     /**
      * Min limit of words in one sentence.
      */
-    this.MIN_SENTENCE_WORDS = 2;
+    this.minSentenceWords = opts.minSentenceWords || 2;
 
     /**
      * Max limit of words in one sentence.
      */
-    this.MAX_SENTENCE_WORDS = 20;
+    this.maxSentenceWords = opts.maxSentenceWords || 20;
 
     /**
      * The chance to show comma after next word.
      */
-    this.SHOW_COMMA_CHANCE = 0.1;
+    this.showCommaChance = opts.showCommaChance || 0.1;
 
     /**
      * Min limit of sentences in the paragraph.
      */
-    this.MIN_PARAGRAPH_SENTENCES = 2;
+    this.minParagraphSentences = opts.minParagraphSentences || 2;
 
     /**
      * Max limit of sentences in the paragraph.
      */
-    this.MAX_PARAGRAPH_SENTENCES = 20;
+    this.maxParagraphSentences = opts.maxParagraphSentences || 2;
 };
 
 BavariaIpsum.prototype = {
-    /**
-     * Return random int between min and max.
-     */
-    _getRandomInt: function (min, max) {
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-    },
-
     /**
      * Return random Bavarian word.
      */
@@ -64,13 +61,13 @@ BavariaIpsum.prototype = {
             i;
 
         length = length || this._getRandomInt(
-            this.MIN_SENTENCE_WORDS,
-            this.MAX_SENTENCE_WORDS
+            this.minSentenceWords,
+            this.maxSentenceWords
         );
 
-        for (i = 0; i < length; i ++) {
+        for (i = 0; i < length; ++i) {
             sentence += this.generateWord();
-            sentence += this.shouldShowComma() ? ", " : " ";
+            sentence += this._shouldShowComma() ? ", " : " ";
         }
 
         sentence = sentence.replace(/,?\s*$/, '');
@@ -84,37 +81,41 @@ BavariaIpsum.prototype = {
      */
     generateParagraph: function (length, opts) {
         var sentences = [],
-            args = Array.prototype.slice.call(arguments);
+            args = Array.prototype.slice.call(arguments),
+            argsLen = args.length,
+            i;
 
-        if (
-            args.length === 0 ||
-            (args.length === 1 && typeof length == 'object')
-        ) {
+        if (argsLen === 0 || (argsLen === 1 && typeof length === 'object')) {
             length = this._getRandomInt(
-                this.MIN_PARAGRAPH_SENTENCES,
-                this.MAX_PARAGRAPH_SENTENCES
+                this.minParagraphSentences,
+                this.maxParagraphSentences
             );
 
-            opts = args[0];
+            opts = args[0] || {};
         } else if (args.length === 2) {
+            opts = opts || {};
             opts.useStartingSentence = !!opts.useStartingSentence;
         } else if (args.length === 1) {
+            opts = {
+                useStartingSentence: false
+            };
         } else {
             throw new Error(
                 'Invalid arguments'
             );
         }
 
-        opts = opts || {};
+        this._validateParagraphLength(length);
+        this._validateParagraphOptions(opts);
 
         if (opts.useStartingSentence === true) {
-            sentences.push(this.START_SENTENCE);
+            sentences.push(this.startSentence);
             sentences[sentences.length - 1] += ' ';
             sentences[sentences.length - 1] += this.generateSentence();
             --length;
         }
 
-        for (i = 0; i < length; i++) {
+        for (i = 0; i < length; ++i) {
             sentences.push(this.generateSentence());
         }
 
@@ -124,12 +125,42 @@ BavariaIpsum.prototype = {
     /**
      * Return `true` if comma should be shown after next word.
      */
-    shouldShowComma: function () {
-        return Math.random() < this.SHOW_COMMA_CHANCE ? true : false;
+    _shouldShowComma: function () {
+        return Math.random() < this.showCommaChance ? true : false;
+    },
+
+    /**
+     * Return random int between min and max.
+     */
+    _getRandomInt: function (min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    },
+
+    /**
+     * Validate paragraph length (must be an int)
+     */
+    _validateParagraphLength: function (length) {
+        if (length % 1 === 0) {
+            return true;
+        }
+
+        throw new Error(
+            'Length must be an Integer'
+        );
+    },
+
+    _validateParagraphOptions: function (opts) {
+        if (typeof opts === 'object') {
+            return true;
+        }
+
+        throw new Error(
+            'Opts must be an Object'
+        );
     }
 };
 
-module.exports = new BavariaIpsum();
+module.exports = BavariaIpsum;
 
 },{"./source.json":2}],2:[function(require,module,exports){
 module.exports=[
