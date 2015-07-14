@@ -9,6 +9,8 @@ module.exports = function (grunt) {
     ];
 
     grunt.initConfig({
+        pkg: grunt.file.readJSON('package.json'),
+
         jshint: {
             all: jsFiles,
             options: {
@@ -17,25 +19,34 @@ module.exports = function (grunt) {
         },
 
         watch: {
-            js: {
-                files: jsFiles,
-                tasks: [
-                    'jshint',
-                    'browserify',
-                    'karma'
-                ]
-            }
+            files: jsFiles,
+            tasks: [
+                'jshint',
+                'browserify',
+                'karma',
+                'uglify'
+            ]
         },
 
         browserify: {
-            js: {
-                src: 'src/bavaria-ipsum.js',
-                dest: 'dist/bavaria-ipsum.js',
+            build: {
+                src: 'src/<%= pkg.name %>.js',
+                dest: 'dist/<%= pkg.name %>.js',
                 options: {
                     browserifyOptions: {
                         standalone: 'BavariaIpsum'
                     }
                 }
+            }
+        },
+
+        uglify:  {
+            options: {
+                banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
+            },
+            build: {
+                src: 'dist/<%= pkg.name %>.js',
+                dest: 'dist/<%= pkg.name %>.min.js'
             }
         },
 
@@ -48,12 +59,14 @@ module.exports = function (grunt) {
 
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-browserify');
     grunt.loadNpmTasks('grunt-karma');
 
     grunt.registerTask('default', [
         'jshint',
         'karma',
-        'browserify'
+        'browserify',
+        'uglify'
     ]);
 };

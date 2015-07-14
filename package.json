@@ -1,33 +1,42 @@
 {
-    "name": "bavaria-ipsum",
-    "version": "1.0.0",
-    "description": "Bavarian lorem ipsum like generator",
-    "main": "src/bavaria-ipsum.js",
-    "scripts": {
-        "test": "grunt"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git@github.com:JiriChara/bavaria-ipsum.git"
-    },
-    "author": "Jiri Chara <me@jirichara.com>",
-    "license": "MIT",
-    "devDependencies": {
-        "browserify": "^10.2.6",
-        "grunt": "^0.4.5",
-        "grunt-browserify": "^3.8.0",
-        "grunt-cli": "^0.1.13",
-        "grunt-contrib-jshint": "^0.11.2",
-        "grunt-contrib-watch": "^0.6.1",
-        "grunt-karma": "^0.11.2",
-        "jasmine-core": "^2.3.4",
-        "jasmine-expect": "^2.0.0-beta1",
-        "jshint": "^2.8.0",
-        "karma": "^0.12.37",
-        "karma-browserify": "^4.2.1",
-        "karma-jasmine": "^0.3.6",
-        "karma-jasmine-matchers": "^2.0.0-beta1",
-        "karma-phantomjs-launcher": "^0.2.0",
-        "phantomjs": "^1.9.17"
-    }
+  "name": "bavaria-ipsum",
+  "description": "Bavarian lorem ipsum like generator",
+  "author": "Jiri Chara <me@jirichara.com>",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:JiriChara/bavaria-ipsum.git"
+  },
+  "main": "src/bavaria-ipsum.js",
+  "files": [
+    "src/bavaria-ipsum.js",
+    "src/source.json",
+    "dist/bavaria-ipsum.js",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "test": "grunt"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "browserify": "^10.2.6",
+    "grunt": "^0.4.5",
+    "grunt-browserify": "^3.8.0",
+    "grunt-cli": "^0.1.13",
+    "grunt-contrib-jshint": "^0.11.2",
+    "grunt-contrib-uglify": "^0.9.1",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-karma": "^0.11.2",
+    "jasmine-core": "^2.3.4",
+    "jasmine-expect": "^2.0.0-beta1",
+    "jshint": "^2.8.0",
+    "karma": "^0.12.37",
+    "karma-browserify": "^4.2.1",
+    "karma-jasmine": "^0.3.6",
+    "karma-jasmine-matchers": "^2.0.0-beta1",
+    "karma-phantomjs-launcher": "^0.2.0",
+    "phantomjs": "^1.9.17",
+    "uglify": "^0.1.5"
+  }
 }
