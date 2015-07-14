@@ -1,0 +1,24 @@
+{
+  "name": "bavaria-ipsum",
+  "description": "Bavarian lorem ipsum like generator",
+  "authors": [
+      "Jiri Chara <me@jirichara.com>"
+  ],
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:JiriChara/bavaria-ipsum.git"
+  },
+  "main": "dist/bavaria-ipsum.js",
+  "ignore": [
+      "**/.*",
+      "karma.conf.js",
+      "package.json",
+      "test",
+      "node_modules",
+      "Gruntfile.js",
+      "index.html",
+      "src/**"
+  ],
+  "license": "MIT"
+}
