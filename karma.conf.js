@@ -40,8 +40,20 @@ module.exports = function(config) {
         // test results reporter to use
         // possible values: 'dots', 'progress'
         // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-        reporters: ['progress'],
+        reporters: ['progress', 'coverage'],
 
+        coverageReporter: {
+            type : 'lcov',
+            dir : 'coverage/'
+        },
+
+        plugins: [
+            'karma-jasmine',
+            'karma-jasmine-matchers',
+            'karma-browserify',
+            'karma-coverage',
+            'karma-phantomjs-launcher'
+        ],
 
         // web server port
         port: 9876,
