@@ -71,7 +71,7 @@ BavariaIpsum.prototype = {
         }
 
         sentence = sentence.replace(/,?\s*$/, '');
-        sentence += (new RegExp("[\?!\.]$")).test(sentence) ? '' : '.';
+        sentence += (new RegExp("[?!.]$")).test(sentence) ? '' : '.';
 
         return sentence.charAt(0).toUpperCase() + sentence.slice(1);
     },
