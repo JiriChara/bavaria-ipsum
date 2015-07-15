@@ -83,7 +83,7 @@ module.exports = function(config) {
 
         browserify: {
             debug: true,
-            transform: []
+            transform: ['browserify-istanbul']
         }
     });
 };
