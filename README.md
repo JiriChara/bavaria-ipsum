@@ -28,16 +28,16 @@ wget https://raw.githubusercontent.com/JiriChara/bavaria-ipsum/master/dist/bavar
 
 ## Usage
 
-In browser `BavarianIpsum` global variable will be available. In node you have to require it:
+In browser `BavariaIpsum` global variable will be available. In node you have to require it:
 
 ```javascript
-var BavarianIpsum = require('bavaria-ipsum');
+var BavariaIpsum = require('bavaria-ipsum');
 ```
 
 Generate random Bavarian word:
 
 ```javascript
-var ipsum = new BavarianIpsum();
+var ipsum = new BavariaIpsum();
 ipsum.generateWord();
 // => 'griaß'
 ```
@@ -45,7 +45,7 @@ ipsum.generateWord();
 Generate random Bavarian sentence:
 
 ```javascript
-var ipsum = new BavarianIpsum();
+var ipsum = new BavariaIpsum();
 ipsum.generateSentence();
 // => 'Hinter\'m Gmiadlichkeit luja mehra bloß pfundig.'
 
@@ -57,7 +57,7 @@ ipsum.generateSentence(2);
 Generate random Bavarian paragraph:
 
 ```javascript
-var ipsum = new BavarianIpsum();
+var ipsum = new BavariaIpsum();
 ipsum.generateParagraph();
 // => 'Biaschlegl woar singan vasteh Gidarn auszutzeln Sodala auf\'d Wolpern pfenningguat jedza schnacksln Biazelt bravs auf\'n Wolpern hogg Obandeln. Graudwiggal wiavui Singan landla oans a Heimatland auszutzeln Mordsgaudi o\'ha uns Maibam Fünferl blärrd Heimatland großherzig Weibaleid A. Beidl In spotzerl aweng Bia Gwiass gfoids, g\'hupft Reiwadatschi meidromml de hinter\'m, Ohrwaschl Ewig Prosit Wia. Schoo um huift gibt\'s Mordsgaudi. Basd eam, fei Bua hoid, Schuabladdla Gams maibam schuf Bavariae Oim sauwedda lustiga, sauakraud Maibam greana legst Habedehre Bussal sepp. Schorsch Marterl In Weibaleid. Obandeln Auffisteign Wiesn etza heid wolln Diandldrahn nia greana. Anbandeln auffi. Kneedl eana weibaleid Gschmeidig Sei da samma glei Wea wolln naa leck, des. Bloß sauwedda Hetschapfah Watschnbaam wiavui, hoggd Sauwedda. Schmankal zua Maß nachad, enzian, In, Lem. Obacht nacha pfundig glacht gean Greaßt Bradwurschtsemmal Griasnoggalsubbm du, sauakraud Singan ausgähd Haferl Gar gar Bua Umma. Aasgem von wo Hoam In, woschechta Obazda no geh Kimmt Schuabladdla, Gipfe glei. Fias Sauakraud anbandeln. Basd Wea baamwach Foidweg sammawiedaguad griasd iabaroi Wuascht wann ausgähd moand vui gsuffa eich Semmlkneedl Do Ledahosn See. Blosmusi muas Damischa nei. Musi mechad Gaudi amoi fensdaln Wea d\' koa Berg charivari woass Oachkatzlschwoaf i ghupft.'
 
@@ -78,7 +78,7 @@ ipsum.generateParagraph({ useStartingSentence: true });
 You can also overwrite following options:
 
 ```javascript
-var ipsum = new BavarianIpsum({
+var ipsum = new BavariaIpsum({
   startSentence: 'Bavaria Ipsum dolor sit amet',
   minSentenceWords: 2,
   maxSentenceWords: 20,
