@@ -1,6 +1,5 @@
 [![Build Status](https://travis-ci.org/JiriChara/bavaria-ipsum.svg?branch=master)](https://travis-ci.org/JiriChara/bavaria-ipsum)
 [![Code Climate](https://codeclimate.com/github/JiriChara/bavaria-ipsum/badges/gpa.svg)](https://codeclimate.com/github/JiriChara/bavaria-ipsum)
-[![Test Coverage](https://codeclimate.com/github/JiriChara/bavaria-ipsum/badges/coverage.svg)](https://codeclimate.com/github/JiriChara/bavaria-ipsum/coverage)
 [![Dependency Status](https://gemnasium.com/JiriChara/bavaria-ipsum.svg)](https://gemnasium.com/JiriChara/bavaria-ipsum)
 
 # bavaria-ipsum v1.0.2
