@@ -97,7 +97,7 @@ describe('BavariaIpsum', function () {
 
                 expect(this.bavariaIpsum._getRandomInt).toHaveBeenCalledWith(
                     0,
-                    this.bavariaIpsum.source.length
+                    this.bavariaIpsum.source.length - 1
                 );
             });
         });

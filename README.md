@@ -2,7 +2,7 @@
 [![Code Climate](https://codeclimate.com/github/JiriChara/bavaria-ipsum/badges/gpa.svg)](https://codeclimate.com/github/JiriChara/bavaria-ipsum)
 [![Dependency Status](https://gemnasium.com/JiriChara/bavaria-ipsum.svg)](https://gemnasium.com/JiriChara/bavaria-ipsum)
 
-# bavaria-ipsum v1.0.2
+# bavaria-ipsum v1.0.3
 
 bavaria-ipsum is a JavaScript library inspired by [http://bavaria-ipsum.de/](http://bavaria-ipsum.de/). It simply generates random Bavarian text.
 

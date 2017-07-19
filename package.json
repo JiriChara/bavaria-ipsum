@@ -2,7 +2,7 @@
   "name": "bavaria-ipsum",
   "description": "Bavarian lorem ipsum like generator",
   "author": "Jiri Chara <me@jirichara.com>",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "repository": {
     "type": "git",
     "url": "git@github.com:JiriChara/bavaria-ipsum.git"
@@ -39,7 +39,7 @@
     "karma-jasmine": "^0.3.6",
     "karma-jasmine-matchers": "^2.0.0-beta1",
     "karma-phantomjs-launcher": "^0.2.0",
-    "phantomjs": "^1.9.17",
+    "phantomjs": "^2.1.7",
     "uglify": "^0.1.5"
   }
 }

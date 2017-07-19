@@ -49,7 +49,7 @@ BavariaIpsum.prototype = {
      */
     generateWord: function () {
         return this.source[
-            this._getRandomInt(0, this.source.length)
+            this._getRandomInt(0, this.source.length - 1)
         ];
     },
 
@@ -94,7 +94,9 @@ BavariaIpsum.prototype = {
             opts = args[0] || {};
         } else if (args.length === 2) {
             opts = opts || {};
-            opts.useStartingSentence = !!opts.useStartingSentence;
+            try {
+              opts.useStartingSentence = !!opts.useStartingSentence;
+            } catch(ignore) {}
         } else if (args.length === 1) {
             opts = {
                 useStartingSentence: false
